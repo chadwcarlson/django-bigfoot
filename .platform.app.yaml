@@ -17,13 +17,13 @@ dependencies:
 ##########################
 # Builds and variables
 
-# runtime:
-#     extensions:
-#         - blackfire
+runtime:
+    extensions:
+        - blackfire
 
-# variables:
-#     env:
-#         BLACKFIRE_AGENT_SOCKET: "tcp://blackfire.platform.sh:8307"
+variables:
+    env:
+        BLACKFIRE_AGENT_SOCKET: "tcp://blackfire.platform.sh:8307"
 
 hooks:
     build: |
