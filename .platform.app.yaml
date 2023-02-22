@@ -8,7 +8,7 @@
 name: 'app'
 
 #   The runtime the application uses.
-type: 'python:3.10'
+type: 'python:3.9'
 
 ##########################
 # Builds and variables
