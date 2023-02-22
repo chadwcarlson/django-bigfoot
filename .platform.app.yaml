@@ -45,9 +45,9 @@ hooks:
 web:
     upstream:
         socket_family: unix
-    commands:
-        # start: "blackfire-python gunicorn -w 4 -b unix:$SOCKET bigfoot_django.wsgi:application"
-        start: "pipenv run blackfire-python python manage.py runserver"
+    # commands:
+    #     # start: "blackfire-python gunicorn -w 4 -b unix:$SOCKET bigfoot_django.wsgi:application"
+    #     start: "pipenv run blackfire-python python manage.py runserver"
     locations:
         "/":
             passthru: true
