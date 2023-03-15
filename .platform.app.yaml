@@ -33,10 +33,10 @@ hooks:
         python -m pip install --upgrade pip
 
         # Install dependencies
-        pipenv install --deploy
+        pipenv install --deploy --system
         # Collect static assets
-        pipenv run python manage.py collectstatic
-    deploy: pipenv run python manage.py migrate
+        python manage.py collectstatic
+    deploy: python manage.py migrate
 
 ##########################
 # Web configuration
