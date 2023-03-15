@@ -82,6 +82,14 @@ TEMPLATES = [
     },
 ]
 
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+#         'LOCATION': 'unique-snowflake',
+#     }
+# }
+
+
 WSGI_APPLICATION = 'bigfoot_django.wsgi.application'
 
 
