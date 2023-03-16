@@ -33,10 +33,10 @@ hooks:
         python -m pip install --upgrade pip
 
         # Install dependencies
-        pipenv install --deploy --system
+        pipenv install --deploy
         # Collect static assets
-        python manage.py collectstatic
-    deploy: python manage.py migrate
+        pipenv run python manage.py collectstatic
+    deploy: pipenv run python manage.py migrate
 
 ##########################
 # Web configuration
@@ -48,7 +48,7 @@ web:
     commands:
         # start: "blackfire-python gunicorn -w 4 -b unix:$SOCKET bigfoot_django.wsgi:application"
         # start: "blackfire-python python manage.py runserver $PORT"
-        start: "blackfire-python gunicorn -w 4 -b unix:$SOCKET bigfoot_django.wsgi:application"
+        start: "pipenv run blackfire-python gunicorn -w 4 -b unix:$SOCKET bigfoot_django.wsgi:application"
 
     locations:
         "/":
