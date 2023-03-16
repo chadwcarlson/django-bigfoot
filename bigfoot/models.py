@@ -13,20 +13,20 @@ class User(models.Model):
     def get_avatar_url(self):
         return f'https://avatars.dicebear.com/4.5/api/human/{self.email}.svg?mood[]=happy'
 
-    # def get_recent_comments_count(self):
-    #     recent_comment_count = 0
-    #     comments = Comment.objects.filter(owner_id=self.id)
-    #     for comment in comments.all():
-    #         if comment.date_added.month - datetime.datetime.now().month <= 3:
-    #             recent_comment_count += 1
-
-    #     return recent_comment_count
-
     def get_recent_comments_count(self):
-        return Comment.objects.filter(
-            owner__id=self.id,
-            date_added__gt=datetime.datetime.now() - datetime.timedelta(days=3 * 30)
-        ).count()
+        recent_comment_count = 0
+        comments = Comment.objects.filter(owner_id=self.id)
+        for comment in comments.all():
+            if comment.date_added.month - datetime.datetime.now().month <= 3:
+                recent_comment_count += 1
+
+        return recent_comment_count
+
+    # def get_recent_comments_count(self):
+    #     return Comment.objects.filter(
+    #         owner__id=self.id,
+    #         date_added__gt=datetime.datetime.now() - datetime.timedelta(days=3 * 30)
+    #     ).count()
 
 
 class Sighting(models.Model):

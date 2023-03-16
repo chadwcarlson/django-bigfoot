@@ -4,14 +4,14 @@ from django.template import loader
 
 from bigfoot.models import Sighting
 
-from django.db.models import Count
+# from django.db.models import Count
 
 
 def home(request):
     return render(
         request, 'index.html', {
-            # 'sightings': Sighting.objects.all()[:25],
-            'sightings': Sighting.objects.annotate(Count('comment')).all()[:25],
+            'sightings': Sighting.objects.all()[:25],
+            # 'sightings': Sighting.objects.annotate(Count('comment')).all()[:25],
         }
     )
 
@@ -44,7 +44,8 @@ def sightings_partial(request):
 def sightings_show(request, sighting_id):
     # prefetch_related() fixes the problem of retrieving owner for each comment
     # displayed.
-    sighting = Sighting.objects.prefetch_related('comment_set__owner').get(
-        id=sighting_id
-    )
+    # sighting = Sighting.objects.prefetch_related('comment_set__owner').get(
+    #     id=sighting_id
+    # )
+    sighting = Sighting.objects.get(id=sighting_id)
     return render(request, 'sighting_show.html', {'sighting': sighting})

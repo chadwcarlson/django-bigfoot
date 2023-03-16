@@ -1,5 +1,5 @@
 from django import template
-from django.core.cache import cache
+# from django.core.cache import cache
 
 register = template.Library()
 
